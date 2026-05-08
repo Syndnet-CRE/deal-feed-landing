@@ -20,10 +20,10 @@
     --popover-foreground: 160 14% 93%;
 
     /* Primary Accent Colors */
-    --primary: 165 96% 71%; /* #78fcd6 */
+    --primary: 111 56% 54%; /* #5BCC48 — Parcyl brand green */
     --primary-foreground: 160 8% 6%; /* #0d0f0e */
-    --primary-dark: 160 100% 50%; /* #00ffb6 */
-    --primary-light: 160 48% 87%; /* New variable for lighter teal/green shades */
+    --primary-dark: 111 65% 40%; /* deeper green for gradients */
+    --primary-light: 111 48% 80%; /* soft green for badges/gradients */
 
     /* Secondary Accent Colors (for buttons, etc.) */
     --secondary: 160 14% 93%; /* #e7eceb */
@@ -36,7 +36,7 @@
     --border-light: 210 17% 6% / 0.1; /* rgba(16,24,40,0.1) */
     --border-dark: 210 17% 6% / 0.05; /* rgba(16,24,40,0.05) */
 
-    --ring: 165 96% 71%;
+    --ring: 111 56% 54%;
 
     --radius: 0.5rem;
   }
