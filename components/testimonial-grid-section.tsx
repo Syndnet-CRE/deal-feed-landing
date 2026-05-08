@@ -16,7 +16,7 @@ const testimonials = [
     type: "small-dark",
   },
   {
-    quote: "I was spending 15 hours a week pulling lists and skip tracing. Deal Feed cut that to zero.",
+    quote: "I was spending 15 hours a week pulling lists and skip tracing. Nightdrop cut that to zero.",
     name: "Wholesaler",
     company: "Phoenix, AZ",
     avatar: "",
@@ -45,7 +45,7 @@ const testimonials = [
   },
   {
     quote:
-      "We tried building our own sourcing pipeline internally. It took months and it was never this good. Deal Feed was running in five minutes.",
+      "We tried building our own sourcing pipeline internally. It took months and it was never this good. Nightdrop was running in five minutes.",
     name: "Real Estate Fund Manager",
     company: "Houston, TX",
     avatar: "",
@@ -111,7 +111,7 @@ export function TestimonialGridSection() {
             Investors who tried it, kept it
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm md:text-sm lg:text-base font-medium leading-[18.20px] md:leading-relaxed lg:leading-relaxed">
-            Early access feedback from real estate investors and operators using Deal Feed
+            Early access feedback from real estate investors and operators using Nightdrop
           </p>
         </div>
       </div>

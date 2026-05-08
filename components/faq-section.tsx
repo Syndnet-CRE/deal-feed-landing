@@ -99,7 +99,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Deal Feed before you get started
+            Everything you need to know about Nightdrop before you get started
           </p>
         </div>
       </div>

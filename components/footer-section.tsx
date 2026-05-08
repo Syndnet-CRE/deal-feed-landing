@@ -1,6 +1,8 @@
 "use client"
 
+import Image from "next/image"
 import { Twitter, Github, Linkedin } from "lucide-react"
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/config"
 
 export function FooterSection() {
   return (
@@ -8,7 +10,7 @@ export function FooterSection() {
       {/* Left Section: Logo, Description, Social Links */}
       <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
         <div className="flex gap-3 items-stretch justify-center">
-          <div className="text-center text-foreground text-xl font-semibold leading-4">Deal Feed</div>
+          <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={120} height={44} />
         </div>
         <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">Off-market deals. Every morning.</p>
         <div className="flex justify-start items-start gap-3">
@@ -31,8 +33,8 @@ export function FooterSection() {
             <a href="#features-section" className="text-foreground text-sm font-normal leading-5 hover:underline">How It Works</a>
             <a href="#pricing-section" className="text-foreground text-sm font-normal leading-5 hover:underline">Pricing</a>
             <a href="#faq-section" className="text-foreground text-sm font-normal leading-5 hover:underline">FAQ</a>
-            <a href="/signup" className="text-foreground text-sm font-normal leading-5 hover:underline">Sign Up</a>
-            <a href="/login" className="text-foreground text-sm font-normal leading-5 hover:underline">Sign In</a>
+            <a href={SIGNUP_URL} className="text-foreground text-sm font-normal leading-5 hover:underline">Sign Up</a>
+            <a href={LOGIN_URL} className="text-foreground text-sm font-normal leading-5 hover:underline">Sign In</a>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-3">

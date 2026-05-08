@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { SIGNUP_URL } from "@/lib/config"
 
 export function CTASection() {
   return (
@@ -110,7 +111,7 @@ export function CTASection() {
             We built this because we got tired of chasing the same deals as everyone else. Early access is limited. Get on the list.
           </p>
         </div>
-        <Link href="/signup">
+        <Link href={SIGNUP_URL}>
           <Button
             className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
             size="lg"

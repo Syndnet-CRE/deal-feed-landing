@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Menu } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/config"
 
 export function Header() {
   const navItems = [
@@ -43,12 +44,12 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="/login" className="hidden md:block">
+          <Link href={LOGIN_URL} className="hidden md:block">
             <Button variant="outline" className="px-5 py-2 rounded-full font-medium text-sm">
               Sign In
             </Button>
           </Link>
-          <Link href="/signup" className="hidden md:block">
+          <Link href={SIGNUP_URL} className="hidden md:block">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 rounded-full font-medium text-sm">
               Sign Up Free
             </Button>
@@ -76,10 +77,10 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="flex gap-3 mt-4">
-                  <Link href="/login" className="flex-1">
+                  <Link href={LOGIN_URL} className="flex-1">
                     <Button variant="outline" className="w-full rounded-full font-medium text-sm">Sign In</Button>
                   </Link>
-                  <Link href="/signup" className="flex-1">
+                  <Link href={SIGNUP_URL} className="flex-1">
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-medium text-sm">Sign Up Free</Button>
                   </Link>
                 </div>

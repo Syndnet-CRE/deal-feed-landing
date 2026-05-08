@@ -2,6 +2,7 @@ import React from "react"
 import { Button } from "@/components/ui/button"
 import { Header } from "./header"
 import Link from "next/link"
+import { SIGNUP_URL } from "@/lib/config"
 
 export function HeroSection() {
   return (
@@ -446,7 +447,7 @@ export function HeroSection() {
         </p>
       </div>
 
-      <Link href="/signup">
+      <Link href={SIGNUP_URL}>
         <Button className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
           Join the Waitlist
         </Button>
