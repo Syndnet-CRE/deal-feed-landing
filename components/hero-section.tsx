@@ -438,20 +438,37 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-          Tell us what you're looking for. Deals in your inbox every morning.
+      <div className="relative z-10 flex flex-col items-center gap-4 md:gap-5 lg:gap-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[560px] lg:max-w-[680px] mt-16 md:mt-[110px] lg:mt-[140px] px-4">
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10 text-foreground/80 text-xs md:text-sm font-medium uppercase tracking-wide">
+          We run agents every night · Nationwide
+        </span>
+        <h1 className="text-foreground text-4xl md:text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight">
+          Automate your acquisition pipeline.
         </h1>
-        <p className="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          Submit your acquisition criteria once. Every morning we deliver a curated digest of matched off-market properties, scored by distress signals, written up as actionable deal briefs, with owner contact info attached. No searching. No platforms.
+        <p className="text-muted-foreground text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl mx-auto">
+          Set your buy box once. Every night, our agents scan 160M+ parcels and deliver distress-flagged deals to your inbox by 6 AM.
         </p>
       </div>
 
-      <Link href={SIGNUP_URL}>
-        <Button className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
-          Join the Waitlist
-        </Button>
-      </Link>
+      <div className="relative z-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+        <Link href={SIGNUP_URL}>
+          <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-7 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
+            Submit your buy box before midnight →
+          </Button>
+        </Link>
+        <Link href="#features-section">
+          <Button
+            variant="ghost"
+            className="text-foreground hover:bg-white/5 px-6 py-3 rounded-full font-medium text-base ring-1 ring-white/15"
+          >
+            See how it works
+          </Button>
+        </Link>
+      </div>
+
+      <p className="relative z-10 mt-3 md:mt-4 text-muted-foreground text-xs md:text-sm font-medium">
+        3-day free trial · Card required · Cancel anytime
+      </p>
     </section>
   )
 }

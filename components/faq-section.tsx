@@ -6,34 +6,49 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is a buy box?",
+    question: "How is this different from PropStream or BatchLeads?",
     answer:
-      "Your acquisition criteria. Asset class, geography, lot size, value range, minimum hold period, and distress signals. You define it once and we search against it every night.",
+      "Those are list tools. You pull, scrub, skip trace, and decide what to call. Nightdrop delivers finished deal briefs to your inbox every morning — already filtered for distress, already scored against your threshold, already skip traced, already written up. The work is done before you wake up.",
+  },
+  {
+    question: "What if my market doesn't have enough data?",
+    answer:
+      "We run a coverage check on every new buy box before activating. If your geography is too thin to produce quality matches, we'll tell you upfront — and you don't get charged. Coverage is full in 47 states; non-disclosure states (TX, KS, UT, and a few others) have lighter sale-price data but full ownership and distress data.",
   },
   {
     question: "Where does the data come from?",
     answer:
-      "ATTOM property data via Snowflake. 160 million parcels, 150+ billion data points, approximately 900 data points per property, including geospatial, demographic, ownership, transaction, and assessment data.",
+      "ATTOM property data via Snowflake. 160 million parcels, approximately 900 data points per property, including geospatial, demographic, ownership, transaction, and assessment data.",
   },
   {
     question: "How fresh is the data?",
     answer:
-      "Our pipeline runs nightly. Every morning's brief reflects the most current ownership, assessment, and distress data available in our database.",
+      "Our pipeline runs every 24 hours. Data provided by Parcyl.ai. Every morning's brief reflects the most current ownership, assessment, and distress data available.",
   },
   {
-    question: "What markets do you cover?",
+    question: "How accurate is the skip trace?",
     answer:
-      "We validate coverage before activating your buy box. If your target market doesn't have enough data density to produce quality matches, we'll tell you before you pay and give you options to broaden your criteria.",
+      "Every contact comes with a confidence percentage. We surface phone and email pulled from public-records-grade skip trace data. Verify before outreach. We don't claim 100% — we claim transparent.",
   },
   {
-    question: "How do I get owner contact info?",
+    question: "What if I get a deal that's not relevant?",
     answer:
-      "Every deal brief includes the best available contact sourced via skip trace, with name, phone, and email and confidence percentages attached to each. You verify before you dial.",
+      "Hit Not Relevant. We log it and tighten future matches. Buy box criteria can also be edited any time before midnight to take effect on the next run.",
+  },
+  {
+    question: "What asset classes do you cover?",
+    answer:
+      "Residential (single-family, 2-4 unit, multifamily), commercial (industrial, retail, office), self-storage, land, and mixed-use. Buy box criteria are fully customizable.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer:
+      "Yes. Cancel from your account in two clicks. You keep your nightly runs through the end of your billing period — no refunds, no pro-rating.",
   },
   {
     question: "Is there a contract?",
     answer:
-      "No. Monthly plans cancel anytime. Annual plans are billed upfront at a 10% discount. No lock-ins, no cancellation fees.",
+      "No. Month-to-month. Cancel anytime.",
   },
 ]
 

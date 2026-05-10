@@ -104,21 +104,29 @@ export function CTASection() {
       </div>
       <div className="relative z-10 flex flex-col justify-start items-center gap-9 max-w-4xl mx-auto">
         <div className="flex flex-col justify-start items-center gap-4 text-center">
-          <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[435px]">
-            Stop chasing deals. Start receiving them.
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10 text-foreground/80 text-xs md:text-sm font-medium uppercase tracking-wide">
+            Get started tonight
+          </span>
+          <h2 className="text-foreground text-4xl md:text-5xl lg:text-[64px] font-semibold leading-tight md:leading-tight lg:leading-[72px] break-words max-w-[760px]">
+            Tonight's run starts at 2 AM. Submit your buy box before midnight.
           </h2>
           <p className="text-muted-foreground text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
-            We built this because we got tired of chasing the same deals as everyone else. Early access is limited. Get on the list.
+            Set your criteria tonight. Your agent runs at 2 AM. Tomorrow morning you'll see exactly what Nightdrop surfaces for your market.
           </p>
         </div>
-        <Link href={SIGNUP_URL}>
-          <Button
-            className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
-            size="lg"
-          >
-            Join the Waitlist
-          </Button>
-        </Link>
+        <div className="flex flex-col items-center gap-3">
+          <Link href={SIGNUP_URL}>
+            <Button
+              className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
+              size="lg"
+            >
+              Be in tomorrow's inbox →
+            </Button>
+          </Link>
+          <p className="text-muted-foreground text-xs md:text-sm font-medium">
+            3-day free trial · Card required · Cancel anytime
+          </p>
+        </div>
       </div>
     </section>
   )
