@@ -53,7 +53,7 @@ export function VsOldWaySection() {
             How we're different
           </span>
           <h2 className="text-foreground text-4xl md:text-5xl font-semibold leading-tight max-w-[720px]">
-            Stop doing the work. Start getting the deals.
+            <span className="text-red-500">Stop</span> doing the work. <span className="text-primary">Start</span> getting the deals.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-medium leading-relaxed max-w-[680px]">
             PropStream and BatchLeads make you the operator. So does hiring a VA — they're just running the same tools while you pay them, train them, and manage them. Nightdrop eliminates all of that.
