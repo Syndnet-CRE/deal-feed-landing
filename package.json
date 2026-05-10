@@ -6,7 +6,8 @@
     "dev": "NODE_OPTIONS='--localstorage-file=/tmp/df-landing-ls.json' next dev -p 3456",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean:dev": "rm -rf .next && NODE_OPTIONS='--localstorage-file=/tmp/df-landing-ls.json' next dev -p 3456"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",

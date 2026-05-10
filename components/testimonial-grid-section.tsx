@@ -62,7 +62,7 @@ const TestimonialCard = ({ quote, name, company, type }: { quote: string; name: 
   let nameClasses = ""
   let companyClasses = ""
   let cardHeight = ""
-  const cardWidth = "w-full md:w-[384px]"
+  const cardWidth = "w-full md:w-full lg:w-[384px]"
 
   if (type === "large-teal") {
     cardClasses += " bg-primary"
@@ -115,7 +115,7 @@ export function TestimonialGridSection() {
           </p>
         </div>
       </div>
-      <div className="w-full pt-0.5 pb-4 md:pb-6 lg:pb-10 flex flex-col md:flex-row justify-center items-start gap-4 md:gap-4 lg:gap-6 max-w-[1100px] mx-auto">
+      <div className="w-full pt-0.5 pb-4 md:pb-6 lg:pb-10 flex flex-col lg:flex-row justify-center items-stretch gap-4 lg:gap-6 max-w-[1100px] mx-auto">
         <div className="flex-1 flex flex-col justify-start items-start gap-4 md:gap-4 lg:gap-6">
           <TestimonialCard {...testimonials[0]} />
           <TestimonialCard {...testimonials[1]} />

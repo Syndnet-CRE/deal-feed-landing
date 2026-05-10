@@ -1,7 +1,11 @@
 import { HeroSection } from "@/components/hero-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProof } from "@/components/social-proof"
+import { VsOldWaySection } from "@/components/vs-old-way-section"
 import { BentoSection } from "@/components/bento-section"
+import { MidnightRunSection } from "@/components/midnight-run-section"
+import { MethodologySection } from "@/components/methodology-section"
+import { SampleDealBriefSection } from "@/components/sample-deal-brief-section"
 import { LargeTestimonial } from "@/components/large-testimonial"
 import { PricingSection } from "@/components/pricing-section"
 import { TestimonialGridSection } from "@/components/testimonial-grid-section"
@@ -23,11 +27,27 @@ export default function LandingPage() {
             </AnimatedSection>
           </div>
         </main>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6 mt-[660px] md:mt-[660px]" delay={0.1}>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6 mt-12 sm:mt-24 md:mt-[280px] lg:mt-[660px]" delay={0.1}>
           <SocialProof />
+        </AnimatedSection>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.15}>
+          <VsOldWaySection />
         </AnimatedSection>
         <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
           <BentoSection />
+        </AnimatedSection>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          <MidnightRunSection />
+        </AnimatedSection>
+        <AnimatedSection
+          id="methodology-section"
+          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+          delay={0.2}
+        >
+          <MethodologySection />
+        </AnimatedSection>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          <SampleDealBriefSection />
         </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
           <LargeTestimonial />

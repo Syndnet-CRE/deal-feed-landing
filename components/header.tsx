@@ -26,10 +26,17 @@ export function Header() {
   }
 
   return (
-    <header className="w-full py-4 px-8">
+    <header className="w-full py-4 px-4 md:px-8">
       <div className="w-full flex items-center justify-between relative">
         <div className="flex items-center">
-          <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={193} height={71} priority />
+          <Image
+            src="/logos/nightdrop-logo.png"
+            alt="Nightdrop"
+            width={193}
+            height={71}
+            priority
+            className="w-[140px] h-auto md:w-[193px]"
+          />
         </div>
         <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (

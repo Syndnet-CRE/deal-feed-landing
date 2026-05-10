@@ -41,7 +41,12 @@ export function FooterSection() {
           <h3 className="text-muted-foreground text-sm font-medium leading-5">Company</h3>
           <div className="flex flex-col justify-center items-start gap-2">
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">About</a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">Contact</a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              Contact
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              Book a call
+            </a>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-3">
