@@ -52,25 +52,43 @@ const distressSignals: DistressSignal[] = [
   },
 ]
 
-const stackableSignals: StackableSignal[] = [
-  { name: "Hold length", Icon: Clock },
-  { name: "Absentee owner", Icon: MapPinOff },
-  { name: "Lot size", Icon: Maximize2 },
-  { name: "Asset class", Icon: Building2 },
-  { name: "LLC complexity", Icon: Users },
-  { name: "No recent permits", Icon: FileText },
-  { name: "Mailing distance", Icon: MapPin },
-  { name: "Comp velocity", Icon: TrendingUp },
-  { name: "Opportunity Zone", Icon: Sparkles },
-  { name: "Flood zone", Icon: Droplets },
-  { name: "Zoning", Icon: LayoutGrid },
-  { name: "+ 900 attributes", Icon: Database },
+const stackableSignalRows: StackableSignal[][] = [
+  [
+    { name: "Asset class", Icon: Building2 },
+    { name: "Hold length", Icon: Clock },
+    { name: "Absentee owner", Icon: MapPinOff },
+    { name: "Lot size", Icon: Maximize2 },
+    { name: "LLC complexity", Icon: Users },
+  ],
+  [
+    { name: "Mailing distance", Icon: MapPin },
+    { name: "No recent permits", Icon: FileText },
+    { name: "Comp velocity", Icon: TrendingUp },
+    { name: "Zoning", Icon: LayoutGrid },
+  ],
+  [
+    { name: "Opportunity Zone", Icon: Sparkles },
+    { name: "Flood zone", Icon: Droplets },
+    { name: "+ 900 attributes", Icon: Database },
+  ],
 ]
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center justify-center gap-4 w-full">
+      <div className="h-px flex-1 max-w-[120px] bg-white/15" />
+      <span className="text-primary text-sm md:text-base font-semibold uppercase tracking-[0.18em] whitespace-nowrap">
+        {children}
+      </span>
+      <div className="h-px flex-1 max-w-[120px] bg-white/15" />
+    </div>
+  )
+}
 
 export function MethodologySection() {
   return (
     <section className="w-full px-5 py-12 md:py-20 flex flex-col items-center">
-      <div className="max-w-[1100px] w-full flex flex-col items-center gap-10 md:gap-14">
+      <div className="max-w-[1100px] w-full flex flex-col items-center gap-12 md:gap-16">
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10 text-foreground/80 text-xs md:text-sm font-medium uppercase tracking-wide">
             Our Methodology
@@ -84,53 +102,58 @@ export function MethodologySection() {
         </div>
 
         {/* Distress signals — the hard gate */}
-        <div className="w-full flex flex-col gap-5">
-          <div className="flex items-center gap-3">
-            <span className="text-muted-foreground text-xs md:text-sm font-semibold uppercase tracking-wider whitespace-nowrap">
-              Distress signals — the hard gate
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
+        <div className="w-full flex flex-col gap-6 md:gap-8">
+          <SectionLabel>Distress signals — the hard gate</SectionLabel>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {distressSignals.map(({ name, detail, Icon }) => (
               <div
                 key={name}
-                className="rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm p-5 md:p-6 flex flex-col gap-3 transition-colors hover:border-primary/30"
+                className="rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm p-6 md:p-7 flex flex-col items-center text-center gap-4 transition-colors hover:border-primary/40"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-white" strokeWidth={2} />
+                <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center shadow-[0_0_28px_-6px_rgba(91,204,72,0.5)]">
+                  <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                 </div>
-                <h3 className="text-foreground text-lg font-semibold leading-tight">{name}</h3>
+                <h3 className="text-foreground text-lg md:text-xl font-semibold leading-tight">
+                  {name}
+                </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{detail}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Stack any of these on top */}
-        <div className="w-full flex flex-col gap-5">
-          <div className="flex items-center gap-3">
-            <span className="text-muted-foreground text-xs md:text-sm font-semibold uppercase tracking-wider whitespace-nowrap">
-              Stack any of these on top
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-          <div className="flex flex-wrap gap-2 md:gap-3">
-            {stackableSignals.map(({ name, Icon }) => (
-              <div
-                key={name}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] ring-1 ring-white/10 text-foreground/90 text-sm font-medium transition-colors hover:bg-white/[0.06] hover:ring-primary/30"
-              >
-                <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2} />
-                <span>{name}</span>
+        {/* Stack any of these on top — triangle layout 5 / 4 / 3 */}
+        <div className="w-full flex flex-col gap-6 md:gap-8">
+          <SectionLabel>Stack any of these on top</SectionLabel>
+          <div className="flex flex-col items-center gap-2 md:gap-3">
+            {stackableSignalRows.map((row, rowIdx) => (
+              <div key={rowIdx} className="flex flex-wrap justify-center gap-2 md:gap-3">
+                {row.map(({ name, Icon }) => (
+                  <div
+                    key={name}
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/[0.04] ring-1 ring-white/10 text-foreground/90 text-sm font-medium transition-colors hover:bg-white/[0.06] hover:ring-primary/30"
+                  >
+                    <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2} />
+                    <span>{name}</span>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-foreground/80 text-sm md:text-base font-medium text-center max-w-[720px] leading-relaxed">
-          Distress sets the floor. Your buy box sets the ceiling. The agent scores the rest.
-        </p>
+        {/* Closing punchline */}
+        <div className="flex flex-col items-center gap-1.5 text-center">
+          <p className="text-foreground text-3xl md:text-4xl font-semibold leading-tight">
+            Distress sets the <span className="text-primary">floor</span>.
+          </p>
+          <p className="text-foreground text-3xl md:text-4xl font-semibold leading-tight">
+            Your buy box sets the <span className="text-primary">ceiling</span>.
+          </p>
+          <p className="text-muted-foreground text-lg md:text-xl font-medium leading-tight mt-2">
+            The agent scores the rest.
+          </p>
+        </div>
       </div>
     </section>
   )
