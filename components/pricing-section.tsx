@@ -75,7 +75,7 @@ const pricingPlans: PricingPlan[] = [
     ],
     trial: null,
     buttonText: "Contact us",
-    buttonHref: "mailto:[contact@placeholder]",
+    buttonHref: "#",
     buttonClass:
       "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-secondary-foreground text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-secondary/90",
   },
