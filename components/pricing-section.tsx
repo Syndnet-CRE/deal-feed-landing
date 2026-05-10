@@ -37,7 +37,7 @@ const pricingPlans: PricingPlan[] = [
     buttonText: "Start your trial",
     buttonHref: SIGNUP_URL,
     buttonClass:
-      "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] outline outline-0.5 outline-[#1e29391f] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-zinc-400",
+      "bg-primary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] !text-zinc-900 hover:bg-primary/90 transition-shadow hover:shadow-[0_0_22px_-4px_rgba(91,204,72,0.65)]",
   },
   {
     name: "Operator",
@@ -57,7 +57,7 @@ const pricingPlans: PricingPlan[] = [
     buttonText: "Start your trial",
     buttonHref: SIGNUP_URL,
     buttonClass:
-      "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-primary text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-primary-foreground/90",
+      "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] !text-white hover:bg-primary-foreground/90 transition-shadow hover:shadow-[0_0_22px_-4px_rgba(91,204,72,0.45)]",
     popular: true,
   },
   {
@@ -77,7 +77,7 @@ const pricingPlans: PricingPlan[] = [
     buttonText: "Contact us",
     buttonHref: "#",
     buttonClass:
-      "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-secondary-foreground text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-secondary/90",
+      "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] !text-zinc-900 hover:bg-secondary/90 transition-shadow hover:shadow-[0_0_22px_-4px_rgba(255,255,255,0.18)]",
   },
 ]
 

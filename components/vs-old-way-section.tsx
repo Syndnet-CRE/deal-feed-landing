@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react"
+import Image from "next/image"
 
 interface ComparisonRow {
   need: string
@@ -73,8 +74,8 @@ export function VsOldWaySection() {
               <div className="flex items-start gap-2 px-3 py-2 rounded-lg bg-primary/[0.08] ring-1 ring-primary/20">
                 <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" strokeWidth={2.5} />
                 <div className="flex-1">
-                  <div className="text-primary text-[10px] font-semibold uppercase tracking-wide mb-0.5">
-                    Nightdrop
+                  <div className="mb-0.5">
+                    <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={80} height={29} className="h-4 w-auto" />
                   </div>
                   <span className="text-foreground/90 text-sm leading-snug">{row.nightdrop}</span>
                 </div>
@@ -98,8 +99,8 @@ export function VsOldWaySection() {
             <div className="px-4 md:px-6 py-4 md:py-5 text-muted-foreground font-medium border-b border-white/10">
               What you need
             </div>
-            <div className="px-4 md:px-6 py-4 md:py-5 text-foreground font-semibold border-b border-white/10 bg-primary/10">
-              Nightdrop
+            <div className="px-4 md:px-6 py-2 font-semibold border-b border-white/10 bg-primary/10 flex items-center">
+              <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={193} height={71} className="h-20 w-auto" />
             </div>
             <div className="px-4 md:px-6 py-4 md:py-5 text-muted-foreground font-medium border-b border-white/10">
               <span className="block">The old way</span>

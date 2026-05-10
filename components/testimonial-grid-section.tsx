@@ -1,3 +1,7 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+
 const testimonials = [
   {
     quote:
@@ -57,7 +61,7 @@ const TestimonialCard = ({ quote, name, company, type }: { quote: string; name: 
   const isLargeCard = type.startsWith("large")
   const padding = isLargeCard ? "p-6" : "p-[30px]"
 
-  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding}`
+  let cardClasses = `testimonial-card flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding} transition-all duration-500`
   let quoteClasses = ""
   let nameClasses = ""
   let companyClasses = ""
@@ -65,19 +69,19 @@ const TestimonialCard = ({ quote, name, company, type }: { quote: string; name: 
   const cardWidth = "w-full md:w-full lg:w-[384px]"
 
   if (type === "large-teal") {
-    cardClasses += " bg-primary"
+    cardClasses += " bg-primary border border-primary/40 hover:border-primary/70"
     quoteClasses += " text-primary-foreground text-2xl font-medium leading-8"
     nameClasses += " text-primary-foreground text-base font-normal leading-6"
     companyClasses += " text-primary-foreground/60 text-base font-normal leading-6"
     cardHeight = "h-[502px]"
   } else if (type === "large-light") {
-    cardClasses += " bg-[rgba(231,236,235,0.12)]"
+    cardClasses += " bg-[rgba(231,236,235,0.12)] border border-white/10 hover:border-primary/40"
     quoteClasses += " text-foreground text-2xl font-medium leading-8"
     nameClasses += " text-foreground text-base font-normal leading-6"
     companyClasses += " text-muted-foreground text-base font-normal leading-6"
     cardHeight = "h-[502px]"
   } else {
-    cardClasses += " bg-card outline outline-1 outline-border outline-offset-[-1px]"
+    cardClasses += " bg-card border border-white/10 hover:border-primary/40"
     quoteClasses += " text-foreground/80 text-[17px] font-normal leading-6"
     nameClasses += " text-foreground text-sm font-normal leading-[22px]"
     companyClasses += " text-muted-foreground text-sm font-normal leading-[22px]"
@@ -103,8 +107,74 @@ const TestimonialCard = ({ quote, name, company, type }: { quote: string; name: 
 }
 
 export function TestimonialGridSection() {
+  const gridRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const grid = gridRef.current
+    if (!grid) return
+
+    let last: { x: number; y: number } | null = null
+    let raf = 0
+
+    const update = () => {
+      raf = 0
+      if (!last) return
+      const cards = grid.querySelectorAll<HTMLElement>(".testimonial-card")
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect()
+        const cx = rect.left + rect.width / 2
+        const cy = rect.top + rect.height / 2
+        const dx = last!.x - cx
+        const dy = last!.y - cy
+        const len = Math.sqrt(dx * dx + dy * dy) || 1
+        const nx = dx / len
+        const ny = dy / len
+        const cardSize = (rect.width + rect.height) / 2
+        const distFactor = Math.min(len / (cardSize * 0.9), 1)
+        const opacity = Math.pow(1 - distFactor, 2) * 0.95
+        card.style.setProperty("--glow-x", nx.toFixed(3))
+        card.style.setProperty("--glow-y", ny.toFixed(3))
+        card.style.setProperty("--glow-opacity", opacity.toFixed(3))
+      })
+    }
+
+    const handleMove = (e: MouseEvent) => {
+      last = { x: e.clientX, y: e.clientY }
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+
+    const handleLeave = () => {
+      last = null
+      const cards = grid.querySelectorAll<HTMLElement>(".testimonial-card")
+      cards.forEach((card) => {
+        card.style.setProperty("--glow-opacity", "0")
+      })
+    }
+
+    grid.addEventListener("mousemove", handleMove)
+    grid.addEventListener("mouseleave", handleLeave)
+    return () => {
+      grid.removeEventListener("mousemove", handleMove)
+      grid.removeEventListener("mouseleave", handleLeave)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [])
+
   return (
     <section className="w-full px-5 overflow-hidden flex flex-col justify-start py-6 md:py-8 lg:py-14">
+      <style>{`
+        .testimonial-card {
+          --glow-x: 0;
+          --glow-y: 0;
+          --glow-opacity: 0;
+          box-shadow:
+            calc(var(--glow-x) * 18px)
+            calc(var(--glow-y) * 18px)
+            28px
+            rgba(91, 204, 72, calc(var(--glow-opacity) * 0.5));
+          transition: box-shadow 0.25s ease-out, border-color 0.5s ease;
+        }
+      `}</style>
       <div className="self-stretch py-6 md:py-8 lg:py-14 flex flex-col justify-center items-center gap-2">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px]">
@@ -115,7 +185,7 @@ export function TestimonialGridSection() {
           </p>
         </div>
       </div>
-      <div className="w-full pt-0.5 pb-4 md:pb-6 lg:pb-10 flex flex-col lg:flex-row justify-center items-stretch gap-4 lg:gap-6 max-w-[1100px] mx-auto">
+      <div ref={gridRef} className="w-full pt-0.5 pb-4 md:pb-6 lg:pb-10 flex flex-col lg:flex-row justify-center items-stretch gap-4 lg:gap-6 max-w-[1100px] mx-auto">
         <div className="flex-1 flex flex-col justify-start items-start gap-4 md:gap-4 lg:gap-6">
           <TestimonialCard {...testimonials[0]} />
           <TestimonialCard {...testimonials[1]} />
