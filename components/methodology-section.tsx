@@ -125,9 +125,23 @@ export function MethodologySection() {
         {/* Stack any of these on top — triangle layout 5 / 4 / 3 */}
         <div className="w-full flex flex-col gap-6 md:gap-8">
           <SectionLabel>Stack any of these on top</SectionLabel>
-          <div className="flex flex-col items-center gap-2 md:gap-3">
+          {/* Mobile: flat flex-wrap, constrained width for predictable wrapping */}
+          <div className="md:hidden flex flex-wrap justify-center gap-2 max-w-[360px] mx-auto">
+            {stackableSignalRows.flat().map(({ name, Icon }) => (
+              <div
+                key={name}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] ring-1 ring-white/10 text-foreground/90 text-sm font-medium"
+              >
+                <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2} />
+                <span>{name}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: 5/4/3 downward triangle */}
+          <div className="hidden md:flex flex-col items-center gap-3">
             {stackableSignalRows.map((row, rowIdx) => (
-              <div key={rowIdx} className="flex flex-wrap justify-center gap-2 md:gap-3">
+              <div key={rowIdx} className="flex flex-wrap justify-center gap-3">
                 {row.map(({ name, Icon }) => (
                   <div
                     key={name}

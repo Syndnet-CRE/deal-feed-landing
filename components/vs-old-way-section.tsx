@@ -60,7 +60,40 @@ export function VsOldWaySection() {
           </p>
         </div>
 
-        <div className="w-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm">
+        {/* Mobile: stacked comparison cards */}
+        <div className="md:hidden w-full flex flex-col gap-3">
+          {rows.map((row) => (
+            <div
+              key={row.need}
+              className="rounded-xl border border-white/15 bg-white/[0.03] backdrop-blur-sm p-4 flex flex-col gap-3"
+            >
+              <div className="text-foreground/90 text-sm font-semibold leading-snug">
+                {row.need}
+              </div>
+              <div className="flex items-start gap-2 px-3 py-2 rounded-lg bg-primary/[0.08] ring-1 ring-primary/20">
+                <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" strokeWidth={2.5} />
+                <div className="flex-1">
+                  <div className="text-primary text-[10px] font-semibold uppercase tracking-wide mb-0.5">
+                    Nightdrop
+                  </div>
+                  <span className="text-foreground/90 text-sm leading-snug">{row.nightdrop}</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 px-3 py-2 rounded-lg bg-white/[0.03] ring-1 ring-white/10">
+                <X className="w-4 h-4 mt-0.5 text-red-400/80 flex-shrink-0" strokeWidth={2.5} />
+                <div className="flex-1">
+                  <div className="text-muted-foreground text-[10px] font-semibold uppercase tracking-wide mb-0.5">
+                    The old way
+                  </div>
+                  <span className="text-muted-foreground text-sm leading-snug">{row.oldWay}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: 3-col grid */}
+        <div className="hidden md:block w-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm">
           <div className="grid grid-cols-[1.4fr_1fr_1.2fr] text-sm md:text-base">
             <div className="px-4 md:px-6 py-4 md:py-5 text-muted-foreground font-medium border-b border-white/10">
               What you need
