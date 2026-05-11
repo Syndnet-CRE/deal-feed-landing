@@ -2,7 +2,8 @@ export function SocialProof() {
   return (
     <section className="self-stretch py-16 flex flex-col justify-center items-center gap-10 overflow-hidden">
       <div className="text-center text-gray-300 text-[48px] font-semibold leading-tight uppercase tracking-widest">
-        The off-market <span className="text-primary">opportunity</span> is massive
+        <span className="block">The off-market opportunity</span>
+        <span className="block">is <span className="text-primary">massive</span></span>
       </div>
       <div className="self-stretch grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-16 justify-items-center max-w-5xl mx-auto px-6">
         <div className="flex flex-col items-center gap-3 text-center">
