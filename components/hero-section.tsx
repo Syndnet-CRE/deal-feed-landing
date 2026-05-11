@@ -7,11 +7,11 @@ import { SIGNUP_URL } from "@/lib/config"
 export function HeroSection() {
   return (
     <section
-      className="flex flex-col items-center text-center relative rounded-2xl overflow-hidden py-0 px-4
-         w-full h-[400px] md:h-[600px] lg:h-[810px] md:px-0"
+      className="flex flex-col items-center text-center relative rounded-2xl py-0 px-4
+         w-full h-[600px] md:h-[800px] lg:h-[1010px] md:px-0"
     >
       {/* SVG Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
         <svg
           width="100%"
           height="100%"
@@ -433,6 +433,9 @@ export function HeroSection() {
         </svg>
       </div>
 
+      {/* Green glow extension behind dashboard preview */}
+      <div className="absolute bottom-[-320px] md:bottom-[-400px] left-0 right-0 h-[480px] bg-gradient-to-b from-primary/15 via-primary/6 to-transparent blur-[72px] z-0 pointer-events-none" />
+
       {/* Header positioned at top of hero container */}
       <div className="absolute top-0 left-0 right-0 z-20">
         <Header />
@@ -442,11 +445,12 @@ export function HeroSection() {
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10 text-foreground/80 text-xs md:text-sm font-medium uppercase tracking-wide">
           We run agents every night · Nationwide
         </span>
-        <h1 className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold leading-[1.15] md:leading-[1.05] tracking-tight">
-          Automate your acquisition pipeline.
+        <h1 className="text-foreground text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-semibold leading-[1.15] md:leading-[1.05] tracking-tight">
+          <span className="block whitespace-nowrap">Deploy your</span>
+          <span className="block whitespace-nowrap">acquisition agent.</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl mx-auto">
-          Set your buy box once. Every night, our agents scan 160M+ parcels and deliver distress-flagged deals to your inbox by 6 AM.
+          160M+ parcels scanned every night · matched to your buy box · delivered to your inbox every morning.
         </p>
       </div>
 

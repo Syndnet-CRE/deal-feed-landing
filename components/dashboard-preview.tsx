@@ -1,8 +1,8 @@
-import Image from "next/image" // Import the Image component
+import Image from "next/image"
 
 export function DashboardPreview() {
   return (
-    <div className="w-full md:w-[960px]">
+    <div className="w-full md:w-[1010px]">
       <div className="bg-primary-light/50 rounded-2xl p-2 shadow-2xl">
         <Image
           src="/images/dashboard-preview.png"
