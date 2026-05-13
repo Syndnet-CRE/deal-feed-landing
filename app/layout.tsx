@@ -11,21 +11,8 @@ export const metadata: Metadata = {
   title: 'Nightdrop: Off-Market Deals, Every Morning',
   description: 'Submit your buy box once. Get a curated digest of matched off-market properties in your inbox every morning, scored, written up, with owner contact attached.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/logos/nightdrop-logo.png',
+    apple: '/logos/nightdrop-logo.png',
   },
 }
 
