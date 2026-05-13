@@ -12,15 +12,29 @@ type FormData = {
   persona: string
   market: string
   dealVolume: string
+  currentTools: string[]
+  monthlySpend: string
   howHeard: string
   agreed: boolean
 }
 
 const INITIAL: FormData = {
   firstName: '', lastName: '', email: '',
-  persona: '', market: '', dealVolume: '', howHeard: '',
+  persona: '', market: '', dealVolume: '',
+  currentTools: [], monthlySpend: '',
+  howHeard: '',
   agreed: false,
 }
+
+const TOOLS = [
+  'PropStream', 'BatchLeads', 'DealMachine', 'Privy',
+  'Go High Level', 'REIPro', 'Followup Boss', 'Other',
+]
+
+const SPEND_RANGES = [
+  'Under $50/mo', '$50–$100/mo', '$100–$200/mo',
+  '$200–$300/mo', '$400–$500/mo', '$500+/mo',
+]
 
 const inputStyle = { background: '#0D0D0D', border: '1px solid rgba(255,255,255,0.08)' }
 const inputCls = 'w-full rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-[#1DAF29]/60'
@@ -35,6 +49,14 @@ export function WaitlistModal() {
   const set = (field: keyof FormData, value: string | boolean) =>
     setForm(prev => ({ ...prev, [field]: value }))
 
+  const toggleTool = (tool: string) =>
+    setForm(prev => ({
+      ...prev,
+      currentTools: prev.currentTools.includes(tool)
+        ? prev.currentTools.filter(t => t !== tool)
+        : [...prev.currentTools, tool],
+    }))
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     if (!form.agreed) {
@@ -45,10 +67,14 @@ export function WaitlistModal() {
     setStatus('loading')
     setErrorMsg('')
     try {
+      const payload = {
+        ...form,
+        currentTools: form.currentTools.join(', ') || 'None selected',
+      }
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       })
       const data = await res.json()
       if (!res.ok) {
@@ -173,6 +199,45 @@ export function WaitlistModal() {
                     <option value="" disabled>Select volume</option>
                     {['0 — just getting started', '1–5', '6–20', '20+'].map(v => (
                       <option key={v} value={v}>{v}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className={labelCls}>Tools you currently use <span className="text-white/30">(select all that apply)</span></label>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {TOOLS.map(tool => {
+                      const selected = form.currentTools.includes(tool)
+                      return (
+                        <button
+                          key={tool}
+                          type="button"
+                          onClick={() => toggleTool(tool)}
+                          className="px-3 py-1.5 rounded-full text-xs font-medium border transition-colors"
+                          style={{
+                            background: selected ? 'rgba(29,175,41,0.15)' : 'rgba(255,255,255,0.04)',
+                            borderColor: selected ? 'rgba(29,175,41,0.5)' : 'rgba(255,255,255,0.08)',
+                            color: selected ? '#1DAF29' : 'rgba(255,255,255,0.5)',
+                          }}
+                        >
+                          {tool}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <div>
+                  <label className={labelCls}>Monthly spend on tools &amp; software</label>
+                  <select
+                    value={form.monthlySpend}
+                    onChange={e => set('monthlySpend', e.target.value)}
+                    className={inputCls}
+                    style={inputStyle}
+                  >
+                    <option value="" disabled>Select a range</option>
+                    {SPEND_RANGES.map(r => (
+                      <option key={r} value={r}>{r}</option>
                     ))}
                   </select>
                 </div>
