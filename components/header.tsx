@@ -2,6 +2,7 @@
 
 import type React from "react"
 
+import { LOGIN_URL } from "@/lib/config"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
@@ -33,10 +34,10 @@ export function Header() {
           <Image
             src="/logos/nightdrop-logo.png"
             alt="Nightdrop"
-            width={193}
-            height={71}
+            width={386}
+            height={92}
             priority
-            className="w-[140px] h-auto md:w-[193px]"
+            className="w-[112px] h-auto md:w-[154px]"
           />
         </div>
         <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
@@ -52,6 +53,12 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <Link
+            href={LOGIN_URL}
+            className="hidden md:flex items-center text-[#888888] hover:text-foreground text-sm font-medium transition-colors"
+          >
+            Log in
+          </Link>
           <Button
             onClick={openWaitlist}
             className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2 rounded-full font-medium text-sm"
@@ -80,6 +87,12 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
+                <Link
+                  href={LOGIN_URL}
+                  className="text-[#888888] hover:text-foreground text-lg py-2 transition-colors"
+                >
+                  Log in
+                </Link>
                 <div className="mt-4">
                   <Button
                     onClick={openWaitlist}
