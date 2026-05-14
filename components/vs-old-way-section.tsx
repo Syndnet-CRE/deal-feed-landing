@@ -75,7 +75,7 @@ export function VsOldWaySection() {
                 <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" strokeWidth={2.5} />
                 <div className="flex-1">
                   <div className="mb-0.5">
-                    <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={80} height={29} className="h-4 w-auto" />
+                    <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={386} height={92} className="h-4 w-auto" />
                   </div>
                   <span className="text-foreground/90 text-sm leading-snug">{row.nightdrop}</span>
                 </div>

@@ -26,7 +26,7 @@ export default function LandingPage() {
             </AnimatedSection>
           </div>
         </main>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-[300px] sm:mt-[360px] md:mt-[420px] lg:mt-[460px]" delay={0.15}>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-[260px] sm:mt-[320px] md:mt-[420px] lg:mt-[460px]" delay={0.15}>
           <VsOldWaySection />
         </AnimatedSection>
         <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>

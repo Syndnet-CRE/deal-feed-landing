@@ -73,19 +73,19 @@ const TestimonialCard = ({ quote, name, company, type }: { quote: string; name: 
     quoteClasses += " text-primary-foreground text-2xl font-medium leading-8"
     nameClasses += " text-primary-foreground text-base font-normal leading-6"
     companyClasses += " text-primary-foreground/60 text-base font-normal leading-6"
-    cardHeight = "h-[502px]"
+    cardHeight = "h-auto md:h-[502px]"
   } else if (type === "large-light") {
     cardClasses += " bg-[rgba(231,236,235,0.12)] border border-white/10 hover:border-primary/40"
     quoteClasses += " text-foreground text-2xl font-medium leading-8"
     nameClasses += " text-foreground text-base font-normal leading-6"
     companyClasses += " text-muted-foreground text-base font-normal leading-6"
-    cardHeight = "h-[502px]"
+    cardHeight = "h-auto md:h-[502px]"
   } else {
     cardClasses += " bg-card border border-white/10 hover:border-primary/40"
     quoteClasses += " text-foreground/80 text-[17px] font-normal leading-6"
     nameClasses += " text-foreground text-sm font-normal leading-[22px]"
     companyClasses += " text-muted-foreground text-sm font-normal leading-[22px]"
-    cardHeight = "h-[244px]"
+    cardHeight = "h-auto md:h-[244px]"
   }
 
   const initials = name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase()

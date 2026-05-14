@@ -449,8 +449,8 @@ export function HeroSection() {
           We run agents every night · Nationwide
         </span>
         <h1 className="text-foreground text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-semibold leading-[1.15] md:leading-[1.05] tracking-tight">
-          <span className="block whitespace-nowrap">Deploy your</span>
-          <span className="block whitespace-nowrap">acquisition agent.</span>
+          <span className="block sm:whitespace-nowrap">Deploy your</span>
+          <span className="block sm:whitespace-nowrap">acquisition agent.</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl mx-auto">
           160M+ parcels scanned every night · matched to your buy box · delivered to your inbox every morning.
