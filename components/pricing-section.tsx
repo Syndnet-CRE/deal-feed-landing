@@ -23,7 +23,7 @@ const pricingPlans: PricingPlan[] = [
     price: "$",
     priceSuffix: "",
     tagline: "1 active buy box",
-    description: "One buy box. Up to 5 deals every morning.",
+    description: "One buy box. 5 deals per morning. ~150 deals per month.",
     features: [
       "1 active buy box",
       "Up to 5 deals per night",
@@ -33,8 +33,8 @@ const pricingPlans: PricingPlan[] = [
       "Match reasoning + confidence score",
       "Cancel anytime",
     ],
-    trial: "3-day free trial · 3 buy boxes · 15 deals",
-    buttonText: "Start your trial",
+    trial: "5-day free trial · 1 buy box · 150 deals",
+    buttonText: "Join the waitlist",
     buttonClass:
       "bg-primary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] !text-zinc-900 hover:bg-primary/90 transition-shadow hover:shadow-[0_0_22px_-4px_rgba(91,204,72,0.65)]",
   },
@@ -43,17 +43,17 @@ const pricingPlans: PricingPlan[] = [
     price: "$",
     priceSuffix: "",
     tagline: "Multi-market coverage",
-    description: "Up to 5 buy boxes. More markets, more deals every morning.",
+    description: "Up to 4 buy boxes. 5 deals per box every morning. ~600 deals per month.",
     features: [
-      "Up to 5 active buy boxes",
-      "Up to 25 deals per night (5 per box)",
+      "Up to 4 active buy boxes",
+      "Up to 20 deals per night (5 per box)",
       "Everything in Starter",
       "Multi-market dashboard",
       "Priority support",
       "Cancel anytime",
     ],
-    trial: "3-day free trial · 5 buy boxes · 75 deals",
-    buttonText: "Start your trial",
+    trial: "5-day free trial · 4 buy boxes · 600 deals",
+    buttonText: "Join the waitlist",
     buttonClass:
       "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] !text-white hover:bg-primary-foreground/90 transition-shadow hover:shadow-[0_0_22px_-4px_rgba(91,204,72,0.45)]",
     popular: true,
@@ -148,7 +148,7 @@ export function PricingSection() {
               </Button>
               {plan.trial && (
                 <p
-                  className={`self-stretch text-center text-xs font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                  className={`self-stretch text-center text-xs font-bold leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
                 >
                   {plan.trial}
                 </p>

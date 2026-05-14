@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
-import { SocialProof } from "@/components/social-proof"
 import { VsOldWaySection } from "@/components/vs-old-way-section"
 import { BentoSection } from "@/components/bento-section"
 import { MidnightRunSection } from "@/components/midnight-run-section"
@@ -27,10 +26,7 @@ export default function LandingPage() {
             </AnimatedSection>
           </div>
         </main>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6 mt-12 sm:mt-24 md:mt-[30px] lg:mt-[410px]" delay={0.1}>
-          <SocialProof />
-        </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.15}>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-[300px] sm:mt-[360px] md:mt-[420px] lg:mt-[460px]" delay={0.15}>
           <VsOldWaySection />
         </AnimatedSection>
         <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>

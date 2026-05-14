@@ -475,7 +475,7 @@ export function HeroSection() {
       </div>
 
       <p className="relative z-10 mt-3 md:mt-4 text-muted-foreground text-xs md:text-sm font-medium">
-        Free beta access · Subscription pricing coming soon
+        Beta access · Limited access
       </p>
     </section>
   )

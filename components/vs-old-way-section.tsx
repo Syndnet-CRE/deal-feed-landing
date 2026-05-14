@@ -100,7 +100,7 @@ export function VsOldWaySection() {
               What you need
             </div>
             <div className="px-4 md:px-6 py-2 font-semibold border-b border-white/10 bg-primary/10 flex items-center">
-              <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={193} height={71} className="h-20 w-auto" />
+              <Image src="/logos/nightdrop-logo.png" alt="Nightdrop" width={386} height={92} className="h-10 w-auto" />
             </div>
             <div className="px-4 md:px-6 py-4 md:py-5 text-muted-foreground font-medium border-b border-white/10">
               <span className="block">The old way</span>
