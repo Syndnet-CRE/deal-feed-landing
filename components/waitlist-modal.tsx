@@ -10,6 +10,7 @@ type FormData = {
   lastName: string
   email: string
   persona: string
+  assetTypes: string[]
   market: string
   dealVolume: string
   currentTools: string[]
@@ -20,11 +21,17 @@ type FormData = {
 
 const INITIAL: FormData = {
   firstName: '', lastName: '', email: '',
-  persona: '', market: '', dealVolume: '',
+  persona: '', assetTypes: [], market: '', dealVolume: '',
   currentTools: [], monthlySpend: '',
   howHeard: '',
   agreed: false,
 }
+
+const ASSET_TYPES = [
+  'Single Family', 'Multifamily (2–4)', 'Multifamily (5–20)',
+  'Multifamily (21+)', 'Land', 'Mobile Home Park',
+  'Self-Storage', 'Industrial', 'Retail', 'Mixed-Use',
+]
 
 const TOOLS = [
   'PropStream', 'BatchLeads', 'DealMachine', 'Privy',
@@ -49,6 +56,14 @@ export function WaitlistModal() {
   const set = (field: keyof FormData, value: string | boolean) =>
     setForm(prev => ({ ...prev, [field]: value }))
 
+  const toggleAssetType = (type: string) =>
+    setForm(prev => ({
+      ...prev,
+      assetTypes: prev.assetTypes.includes(type)
+        ? prev.assetTypes.filter(t => t !== type)
+        : [...prev.assetTypes, type],
+    }))
+
   const toggleTool = (tool: string) =>
     setForm(prev => ({
       ...prev,
@@ -69,6 +84,7 @@ export function WaitlistModal() {
     try {
       const payload = {
         ...form,
+        assetTypes: form.assetTypes.join(', ') || 'None selected',
         currentTools: form.currentTools.join(', ') || 'None selected',
       }
       const res = await fetch('/api/waitlist', {
@@ -175,6 +191,30 @@ export function WaitlistModal() {
                       <option key={p} value={p}>{p}</option>
                     ))}
                   </select>
+                </div>
+
+                <div>
+                  <label className={labelCls}>Asset types I buy <span className="text-white/30">(select all that apply)</span></label>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {ASSET_TYPES.map(type => {
+                      const selected = form.assetTypes.includes(type)
+                      return (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => toggleAssetType(type)}
+                          className="px-3 py-1.5 rounded-full text-xs font-medium border transition-colors"
+                          style={{
+                            background: selected ? 'rgba(29,175,41,0.15)' : 'rgba(255,255,255,0.04)',
+                            borderColor: selected ? 'rgba(29,175,41,0.5)' : 'rgba(255,255,255,0.08)',
+                            color: selected ? '#1DAF29' : 'rgba(255,255,255,0.5)',
+                          }}
+                        >
+                          {type}
+                        </button>
+                      )
+                    })}
+                  </div>
                 </div>
 
                 <div>
