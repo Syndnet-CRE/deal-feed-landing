@@ -1,6 +1,6 @@
 'use client'
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Header } from "./header"
 import Link from "next/link"
@@ -8,6 +8,14 @@ import { useWaitlist } from "@/components/waitlist-context"
 
 export function HeroSection() {
   const { openWaitlist } = useWaitlist()
+  const [remaining, setRemaining] = useState<number | null>(null)
+
+  useEffect(() => {
+    fetch('/api/waitlist/count')
+      .then(r => r.json())
+      .then(d => setRemaining(typeof d.remaining === 'number' ? d.remaining : null))
+      .catch(() => {})
+  }, [])
   return (
     <section
       className="flex flex-col items-center text-center relative rounded-2xl py-0 px-4
@@ -455,6 +463,27 @@ export function HeroSection() {
         <p className="text-muted-foreground text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl mx-auto">
           160M+ parcels scanned every night · matched to your buy box · delivered to your inbox every morning.
         </p>
+
+        {/* Founding Member countdown */}
+        <div className="w-full">
+          <div className="flex items-baseline justify-between mb-2">
+            <span className="text-sm font-medium text-foreground/80">
+              <span className="text-primary font-semibold">
+                {remaining !== null ? remaining : '—'}
+              </span>
+              {' '}of 100 Founding Member spots remaining
+            </span>
+          </div>
+          <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+            <div
+              className="h-full rounded-full bg-primary transition-all duration-700"
+              style={{ width: remaining !== null ? `${((100 - remaining) / 100) * 100}%` : '0%' }}
+            />
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            First 25 signups are entered into a drawing for private beta access.
+          </p>
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 w-full max-w-md md:max-w-none px-4">
