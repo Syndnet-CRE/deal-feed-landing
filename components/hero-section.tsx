@@ -465,23 +465,24 @@ export function HeroSection() {
         </p>
 
         {/* Founding Member countdown */}
-        <div className="w-full">
-          <div className="flex items-baseline justify-between mb-2">
-            <span className="text-sm font-medium text-foreground/80">
-              <span className="text-primary font-semibold">
-                {remaining !== null ? remaining : '—'}
-              </span>
-              {' '}of 100 Founding Member spots remaining
+        <div className="w-full text-center">
+          <p className="text-base font-medium text-foreground/80 mb-2">
+            <span className="text-primary font-semibold">
+              {remaining !== null ? remaining : '—'}
             </span>
-          </div>
-          <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+            {' '}of 100 Founding Member spots remaining
+          </p>
+          <div className="relative w-full h-1.5 rounded-full bg-white/10">
+            {/* Halfway marker */}
+            <div className="absolute top-1/2 left-1/2 -translate-y-1/2 w-px h-3 bg-white/30 z-10" />
+            {/* Animated fill */}
             <div
-              className="h-full rounded-full bg-primary transition-all duration-700"
+              className="h-full rounded-full bg-primary transition-all duration-700 animate-pulse"
               style={{ width: remaining !== null ? `${((100 - remaining) / 100) * 100}%` : '0%' }}
             />
           </div>
           <p className="mt-2 text-xs text-muted-foreground">
-            First 25 signups are entered into a drawing for private beta access.
+            The first 50 Founding Members are considered for private beta access.
           </p>
         </div>
       </div>
