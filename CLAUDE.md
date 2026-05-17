@@ -56,6 +56,12 @@ Only the Google Sheet response is checked for success; the Nightdrop webhook fai
 
 `lib/config.ts` exports `APP_URL`, `LOGIN_URL`, `SIGNUP_URL` derived from `NEXT_PUBLIC_APP_URL`. It throws at module load if the var is missing — add to `.env.local` for local dev.
 
+Confirmed production values (`.env.local` for dev):
+```
+NEXT_PUBLIC_APP_URL=https://nightdropaidashboard.netlify.app
+```
+Landing page deploys to `nightdropai.netlify.app`.
+
 ### Brand tokens (hardcoded, not Tailwind vars)
 - Brand green: `#1DAF29` (buttons, accents, active states)
 - Modal background: `#1E1E24`
