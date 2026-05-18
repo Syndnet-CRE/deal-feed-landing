@@ -465,27 +465,6 @@ export function HeroSection() {
           160M+ parcels scanned every night · matched to your buy box · delivered to your inbox every morning.
         </p>
 
-        {/* Founding Member countdown */}
-        <div className="w-full text-center">
-          <p className="text-base font-medium text-foreground/80 mb-2">
-            <span className="text-primary font-semibold">
-              {remaining !== null ? remaining : '—'}
-            </span>
-            {' '}of 100 Founding Member spots remaining
-          </p>
-          <div className="relative w-full h-1.5 rounded-full bg-white/10">
-            {/* Halfway marker */}
-            <div className="absolute top-1/2 left-1/2 -translate-y-1/2 w-px h-3 bg-white/30 z-10" />
-            {/* Animated fill */}
-            <div
-              className="h-full rounded-full bg-primary transition-all duration-700 animate-pulse"
-              style={{ width: remaining !== null ? `${((100 - remaining) / 100) * 100}%` : '0%' }}
-            />
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            The first 50 Founding Members are considered for private beta access.
-          </p>
-        </div>
       </div>
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 w-full max-w-md md:max-w-none px-4">
@@ -507,10 +486,12 @@ export function HeroSection() {
 
       <div className="relative z-10 w-full max-w-md md:max-w-[560px] lg:max-w-[680px] px-4 mt-4 md:mt-5">
         <div className="flex items-center justify-center gap-1.5 mb-2">
-          <span className="text-primary font-semibold text-base md:text-lg">92</span>
+          <span className="text-primary font-semibold text-base md:text-lg">
+            {remaining !== null ? remaining : '—'}
+          </span>
           <span className="text-muted-foreground text-base md:text-lg">of 100 Founding Member spots remaining</span>
         </div>
-        <WaitlistProgressBar progress={0.08} />
+        <WaitlistProgressBar progress={remaining !== null ? (100 - remaining) / 100 : 0.08} />
         <p className="text-muted-foreground text-xs mt-2 text-center">
           First 25 signups are entered into a drawing for private beta access.
         </p>
