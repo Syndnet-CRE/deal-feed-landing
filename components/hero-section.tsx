@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Header } from "./header"
 import Link from "next/link"
 import { useWaitlist } from "@/components/waitlist-context"
+import { WaitlistProgressBar } from "@/components/waitlist-progress-bar"
 
 export function HeroSection() {
   const { openWaitlist } = useWaitlist()
@@ -504,8 +505,19 @@ export function HeroSection() {
         </Link>
       </div>
 
+      <div className="relative z-10 w-full max-w-md md:max-w-[560px] lg:max-w-[680px] px-4 mt-4 md:mt-5">
+        <div className="flex items-center justify-center gap-1.5 mb-2">
+          <span className="text-primary font-semibold text-base md:text-lg">92</span>
+          <span className="text-muted-foreground text-base md:text-lg">of 100 Founding Member spots remaining</span>
+        </div>
+        <WaitlistProgressBar progress={0.08} />
+        <p className="text-muted-foreground text-xs mt-2 text-center">
+          First 25 signups are entered into a drawing for private beta access.
+        </p>
+      </div>
+
       <p className="relative z-10 mt-3 md:mt-4 text-muted-foreground text-xs md:text-sm font-medium">
-        Beta access · Limited access
+        3-day free trial · Card required · Cancel anytime
       </p>
     </section>
   )

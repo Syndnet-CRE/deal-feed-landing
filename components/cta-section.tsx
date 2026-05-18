@@ -122,7 +122,7 @@ export function CTASection() {
             className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
             size="lg"
           >
-            Be in tomorrow's inbox →
+            Get deals in your inbox by morning →
           </Button>
           <p className="text-muted-foreground text-xs md:text-sm font-medium">
             Free beta access · Subscription pricing coming soon

@@ -29,9 +29,9 @@ const rows: ComparisonRow[] = [
     oldWay: "Manual every single time",
   },
   {
-    need: "Deal brief written up per match",
-    nightdrop: "Included with every match",
-    oldWay: "Raw spreadsheet rows, no analysis",
+    need: "Owner contact attached to every match",
+    nightdrop: "Phone, mailing address, and skip-traced owner name included",
+    oldWay: "Skip trace separately · $0.10–$0.50 per record · additional tool required",
   },
   {
     need: "No hiring, training, or managing",

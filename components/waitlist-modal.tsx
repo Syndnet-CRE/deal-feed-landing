@@ -1,7 +1,7 @@
 'use client'
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { X, Loader2, CheckCircle2, ChevronDown, Check, Minus } from 'lucide-react'
+import { X, Loader2, ChevronDown, Check, Minus } from 'lucide-react'
 import { useState, useRef, useEffect, type FormEvent } from 'react'
 import { useWaitlist } from './waitlist-context'
 
@@ -160,7 +160,7 @@ function AssetTypeDropdown({ selected, onChange }: AssetTypeDropdownProps) {
 }
 
 export function WaitlistModal() {
-  const { open, closeWaitlist } = useWaitlist()
+  const { open, closeWaitlist, showToast } = useWaitlist()
   const [form, setForm] = useState<FormData>(INITIAL)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
@@ -203,6 +203,8 @@ export function WaitlistModal() {
         return
       }
       setStatus('success')
+      closeWaitlist()
+      showToast()
     } catch {
       setErrorMsg('Network error. Please try again.')
       setStatus('error')
@@ -240,14 +242,7 @@ export function WaitlistModal() {
           </div>
 
           <div className="overflow-y-auto flex-1 px-6 py-5 scrollbar-hide">
-            {status === 'success' ? (
-              <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
-                <CheckCircle2 className="w-12 h-12" style={{ color: '#1DAF29' }} />
-                <p className="text-white font-semibold text-lg">You're on the list.</p>
-                <p className="text-white/50 text-sm">We'll reach out shortly with your access.</p>
-              </div>
-            ) : (
-              <form id="waitlist-form" onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form id="waitlist-form" onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className={labelCls}>First Name</label>
@@ -401,23 +396,20 @@ export function WaitlistModal() {
                   <p className="text-red-400 text-sm">{errorMsg}</p>
                 )}
               </form>
-            )}
           </div>
 
-          {status !== 'success' && (
-            <div className="px-6 pb-6 pt-4 shrink-0" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <button
-                type="submit"
-                form="waitlist-form"
-                disabled={status === 'loading'}
-                className="w-full py-3 rounded-lg font-semibold text-sm text-black flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-60"
-                style={{ background: '#1DAF29' }}
-              >
-                {status === 'loading' && <Loader2 className="w-4 h-4 animate-spin" />}
-                {status === 'loading' ? 'Submitting...' : 'Request Early Access'}
-              </button>
-            </div>
-          )}
+          <div className="px-6 pb-6 pt-4 shrink-0" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <button
+              type="submit"
+              form="waitlist-form"
+              disabled={status === 'loading'}
+              className="w-full py-3 rounded-lg font-semibold text-sm text-black flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-60"
+              style={{ background: '#1DAF29' }}
+            >
+              {status === 'loading' && <Loader2 className="w-4 h-4 animate-spin" />}
+              {status === 'loading' ? 'Submitting...' : 'Request Early Access'}
+            </button>
+          </div>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>

@@ -94,10 +94,10 @@ export function MethodologySection() {
             Our Methodology
           </span>
           <h2 className="text-foreground text-4xl md:text-5xl font-semibold leading-tight max-w-[820px]">
-            175B data points. Distress is the hard gate. The rest is up to you.
+            144B data points. Distress is the hard gate. The rest is up to you.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-medium leading-relaxed max-w-[720px]">
-            Our agents train continuously on 160M+ parcels and ~900 attributes per property. We score every property against the distress signals you require and any other criteria you stack on top.
+            Our agents scan 160M+ parcels and ~900 attributes per property every night. We score every property against the distress signals you require and any other criteria you stack on top.
           </p>
         </div>
 

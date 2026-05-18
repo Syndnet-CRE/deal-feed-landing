@@ -18,7 +18,7 @@ const faqData = [
   {
     question: "Where does the data come from?",
     answer:
-      "ATTOM property data via Snowflake. 160 million parcels, approximately 900 data points per property, including geospatial, demographic, ownership, transaction, and assessment data.",
+      "Parcyl. It's a unique database because it's not just property data — it's property data enriched with geospatial intelligence. 160 million parcels, approximately 900 data points per property, covering ownership, transaction history, assessment, demographic, and geospatial layers.",
   },
   {
     question: "How fresh is the data?",
@@ -38,7 +38,7 @@ const faqData = [
   {
     question: "What asset classes do you cover?",
     answer:
-      "Residential (single-family, 2-4 unit, multifamily), commercial (industrial, retail, office), self-storage, land, and mixed-use. Buy box criteria are fully customizable.",
+      "All of them. Our nationwide database has no asset class restrictions. If you have a buy box, we can fulfill it.",
   },
 ]
 

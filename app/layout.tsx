@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { WaitlistProvider } from '@/components/waitlist-context'
 import { WaitlistModal } from '@/components/waitlist-modal'
+import { WaitlistSuccessToast } from '@/components/waitlist-success-toast'
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -27,6 +28,7 @@ export default function RootLayout({
         <WaitlistProvider>
           {children}
           <WaitlistModal />
+          <WaitlistSuccessToast />
         </WaitlistProvider>
       </body>
     </html>

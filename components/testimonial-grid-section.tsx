@@ -34,7 +34,7 @@ const testimonials = [
     type: "small-dark",
   },
   {
-    quote: "The deal brief tells me exactly why a property is distressed and why it hit my buy box. I know the play before I pick up the phone.",
+    quote: "Two of the three deals I pursued last quarter came through Nightdrop. I'm not going back to pulling lists manually.",
     name: "Private Investor",
     company: "Nashville, TN",
     avatar: "",

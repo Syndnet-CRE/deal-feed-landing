@@ -20,7 +20,7 @@ export default function LandingPage() {
         <main className="relative px-[10px] pt-[10px]">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
-          <div className="absolute w-full bottom-[-80px] md:bottom-[-330px] left-1/2 transform -translate-x-1/2 z-0">
+          <div className="absolute w-full bottom-[-130px] md:bottom-[-380px] left-1/2 transform -translate-x-1/2 z-0">
             <AnimatedSection>
               <DashboardPreview />
             </AnimatedSection>

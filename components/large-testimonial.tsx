@@ -9,7 +9,7 @@ export function LargeTestimonial() {
             <div className="flex-1 px-4 py-8 md:px-12 lg:px-20 md:py-8 lg:py-10 overflow-hidden rounded-lg flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-11">
               <div className="w-full max-w-[1024px] text-center text-foreground leading-7 sm:leading-8 md:leading-10 lg:leading-[64px] font-medium text-lg sm:text-xl md:text-3xl lg:text-6xl">
                 {
-                  "I used to spend half my week driving for dollars and pulling lists. Nightdrop replaced all of that."
+                  "I used to spend half my week pulling lists and screening off-market leads. Nightdrop replaced all of that."
                 }
               </div>
               <div className="flex justify-start items-center gap-5">
