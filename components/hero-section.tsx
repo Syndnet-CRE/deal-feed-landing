@@ -493,7 +493,7 @@ export function HeroSection() {
         </div>
         <WaitlistProgressBar progress={remaining !== null ? (100 - remaining) / 100 : 0.08} />
         <p className="text-muted-foreground text-xs mt-2 text-center">
-          First 25 signups are entered into a drawing for private beta access.
+          First 50 signups are entered into a drawing for private beta access.
         </p>
       </div>
 
